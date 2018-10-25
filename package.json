@@ -6,6 +6,9 @@
   "repository": "https://github.com/rehooks/window-size",
   "author": "Jamie Kyle <me@thejameskyle.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "react",
     "hooks",
