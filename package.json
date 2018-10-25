@@ -1,6 +1,6 @@
 {
   "name": "@rehooks/window-size",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React hook for subscribing to window size",
   "main": "index.js",
   "repository": "https://github.com/rehooks/window-size",
