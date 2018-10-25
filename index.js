@@ -4,7 +4,7 @@ let { useState, useEffect } = require('react');
 function getSize() {
   return {
     innerHeight: window.innerHeight,
-    innerWidth: window.innerHeight,
+    innerWidth: window.innerWidth,
     outerHeight: window.outerHeight,
     outerWidth: window.outerWidth,
   };
