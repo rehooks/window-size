@@ -1,30 +1,38 @@
-'use strict';
-let { useState, useEffect } = require('react');
+'use strict'
+let { useState, useEffect } = require('react')
 
 function getSize() {
-  return {
-    innerHeight: window.innerHeight,
-    innerWidth: window.innerWidth,
-    outerHeight: window.outerHeight,
-    outerWidth: window.outerWidth,
-  };
+    return {
+        innerHeight: window.innerHeight,
+        innerWidth: window.innerWidth,
+        outerHeight: window.outerHeight,
+        outerWidth: window.outerWidth,
+    }
 }
 
-function useWindowSize() {
-  let [windowSize, setWindowSize] = useState(getSize());
+function useWindowSize(debounceMs) {
+    let [windowSize, setWindowSize] = useState(getSize())
 
-  function handleResize() {
-    setWindowSize(getSize());
-  }
+    let timeoutId
 
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+    function handleResize() {
+        if (timeoutId) {
+            clearTimeout(timeoutId)
+        }
 
-  return windowSize;
+        timeoutId = setTimeout(function() {
+            setWindowSize(getSize())
+        }, debounceMs)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize)
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
+
+    return windowSize
 }
 
-module.exports = useWindowSize;
+module.exports = useWindowSize
