@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 let { useState, useEffect } = require('react');
 
 function getSize() {
@@ -8,13 +8,21 @@ function getSize() {
     outerHeight: window.outerHeight,
     outerWidth: window.outerWidth,
   };
-}
+};
 
-function useWindowSize() {
+function useWindowSize(debounceMs) {
   let [windowSize, setWindowSize] = useState(getSize());
 
+  let timeoutId;
+
   function handleResize() {
-    setWindowSize(getSize());
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    timeoutId = setTimeout(function() {
+      setWindowSize(getSize());
+    }, debounceMs);
   }
 
   useEffect(() => {
