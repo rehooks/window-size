@@ -9,16 +9,8 @@
     "publishConfig": {
         "access": "public"
     },
-    "keywords": [
-        "react",
-        "hooks",
-        "window",
-        "browser",
-        "size"
-    ],
-    "files": [
-        "index.*"
-    ],
+    "keywords": ["react", "hooks", "window", "browser", "size"],
+    "files": ["index.*"],
     "scripts": {
         "test": "ava test.js",
         "example": "parcel example.html"
@@ -35,8 +27,6 @@
         "react-test-renderer": "^16.7.0-alpha.0"
     },
     "ava": {
-        "require": [
-            "./test-setup.js"
-        ]
+        "require": ["./test-setup.js"]
     }
 }
