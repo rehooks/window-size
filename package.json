@@ -23,7 +23,7 @@
     "test": "ava test.js",
     "example": "parcel example.html"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^16.7.0-alpha.0"
   },
   "devDependencies": {
