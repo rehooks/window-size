@@ -1,12 +1,25 @@
 'use strict';
 let { useState, useEffect } = require('react');
 
+function isClient() {
+  return typeof window === 'object';
+}
+
 function getSize() {
+  if (isClient()) {
+    return {
+      innerHeight: undefined,
+      innerWidth: undefined,
+      outerHeight: undefined,
+      outerWidth: undefined
+    };
+  }
+
   return {
     innerHeight: window.innerHeight,
     innerWidth: window.innerWidth,
     outerHeight: window.outerHeight,
-    outerWidth: window.outerWidth,
+    outerWidth: window.outerWidth
   };
 }
 
@@ -18,6 +31,8 @@ function useWindowSize() {
   }
 
   useEffect(() => {
+    if (!isClient()) return undefined
+
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);

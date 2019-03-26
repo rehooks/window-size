@@ -1,8 +1,8 @@
 interface WindowSize {
-  innerHeight: number,
-  innerWidth: number,
-  outerHeight: number,
-  outerWidth: number,
+  innerHeight: number | undefined,
+  innerWidth: number | undefined,
+  outerHeight: number | undefined,
+  outerWidth: number | undefined,
 }
 
 export default function useWindowSize(): WindowSize;
