@@ -11,7 +11,7 @@ function getSize() {
       innerHeight: undefined,
       innerWidth: undefined,
       outerHeight: undefined,
-      outerWidth: undefined
+      outerWidth: undefined,
     };
   }
 
@@ -31,7 +31,7 @@ function useWindowSize() {
   }
 
   useEffect(() => {
-    if (!isClient()) return undefined
+    if (!isClient()) return undefined;
 
     window.addEventListener('resize', handleResize);
     return () => {
