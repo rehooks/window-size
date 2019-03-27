@@ -6,7 +6,7 @@ function isClient() {
 }
 
 function getSize() {
-  if (isClient()) {
+  if (!isClient()) {
     return {
       innerHeight: undefined,
       innerWidth: undefined,
