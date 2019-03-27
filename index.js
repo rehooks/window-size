@@ -19,7 +19,7 @@ function getSize() {
     innerHeight: window.innerHeight,
     innerWidth: window.innerWidth,
     outerHeight: window.outerHeight,
-    outerWidth: window.outerWidth
+    outerWidth: window.outerWidth,
   };
 }
 
